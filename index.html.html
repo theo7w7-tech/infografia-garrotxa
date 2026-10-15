@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>20 Plantes de la Garrotxa - Infografia</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Georgia', serif;
+        background: #1a2e1f;
+        color: #f5f2eb;
+        min-height: 100vh;
+        padding: 40px 20px;
+        line-height: 1.6;
+    }
+
+    .infografia {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .capcalera {
+        text-align: center;
+        padding: 50px 30px;
+        background: linear-gradient(135deg, #2d5a3d 0%, #1a2e1f 100%);
+        border-radius: 20px;
+        margin-bottom: 40px;
+        border: 2px solid #7a9e7e;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .capcalera::before {
+        content: '🌿';
+        position: absolute;
+        font-size: 8rem;
+        opacity: 0.08;
+        top: -20px;
+        right: -10px;
+    }
+
+    .capcalera h1 {
+        font-size: 3rem;
+        color: #a8c5a8;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+    }
+
+    .capcalera p {
+        font-size: 1.2rem;
+        color: #f5f2eb;
+        font-style: italic;
+    }
+
+    .capcalera .subtitol {
+        margin-top: 15px;
+        font-size: 0.9rem;
+        color: #7a9e7e;
+        letter-spacing: 1px;
+        line-height: 1.8;
+    }
+
+    .graella {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+    }
+
+    .planta {
+        background: linear-gradient(160deg, #24382a 0%, #1e2f23 100%);
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(168, 197, 168, 0.2);
+        transition: transform 0.3s ease, border-color 0.3s ease;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .planta:hover {
+        transform: translateY(-5px);
+        border-color: #a8c5a8;
+    }
+
+    .planta .foto {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        position: relative;
+        background: #2d5a3d;
+    }
+
+    .planta .foto img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        display: block;
+    }
+
+    .planta:hover .foto img {
+        transform: scale(1.08);
+    }
+
+    .planta .foto::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60%;
+        background: linear-gradient(to top, rgba(30,47,35,0.95), transparent);
+    }
+
+    .planta .contingut {
+        padding: 22px 25px 28px;
+        position: relative;
+        flex: 1;
+    }
+
+    .planta .numero {
+        position: absolute;
+        top: -30px;
+        right: 20px;
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: rgba(168, 197, 168, 0.7);
+        font-family: 'Georgia', serif;
+        background: rgba(26,46,31,0.85);
+        padding: 5px 15px;
+        border-radius: 10px;
+        border: 1px solid rgba(168, 197, 168, 0.3);
+        backdrop-filter: blur(4px);
+    }
+
+    .planta h2 {
+        font-size: 1.5rem;
+        color: #a8c5a8;
+        margin-bottom: 4px;
+        letter-spacing: 1px;
+    }
+
+    .planta .cientific {
+        font-style: italic;
+        color: #7a9e7e;
+        font-size: 0.95rem;
+        margin-bottom: 18px;
+        padding-bottom: 12px;
+        border-bottom: 1px dashed rgba(168, 197, 168, 0.25);
+    }
+
+    .planta ul {
+        list-style: none;
+    }
+
+    .planta ul li {
+        padding: 10px 0;
+        font-size: 0.9rem;
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        color: #e8e4dc;
+    }
+
+    .planta ul li .icona {
+        color: #a8c5a8;
+        font-size: 0.8rem;
+        min-width: 18px;
+        padding-top: 4px;
+    }
+
+    .planta ul li strong {
+        color: #c9dcc9;
+    }
+
+    .peu {
+        text-align: center;
+        padding: 30px;
+        background: linear-gradient(135deg, #2d5a3d 0%, #1a2e1f 100%);
+        border-radius: 16px;
+        border: 2px solid #7a9e7e;
+    }
+
+    .peu p {
+        font-size: 1rem;
+        color: #a8c5a8;
+        font-style: italic;
+    }
+
+    .peu .dada {
+        font-size: 1.4rem;
+        color: #f5f2eb;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    @media (max-width: 700px) {
+        .capcalera h1 {
+            font-size: 2rem;
+        }
+        .capcalera {
+            padding: 35px 20px;
+        }
+        .graella {
+            grid-template-columns: 1fr;
+        }
+        .planta .numero {
+            font-size: 2rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="infografia">
+
+    <header class="capcalera">
+        <h1>20 Plantes de la Garrotxa</h1>
+        <p>Flora d'una comarca volcànica</p>
+        <div class="subtitol">Alzina · Pi roig · Pi blanc · Farigola · Boix · Faig · Avellaner · Grèvol · Ciclamen · Falguera · Ginesta · Romaní · Menta · Rosa silvestre · Arç blanc · Roure martinenc · Auró · Saüc · Heura · Esbarzer</div>
+    </header>
+
+    <div class="graella">
+
+        <div class="planta">
+            <div class="foto"><img src="alzina.jpg" alt="Alzina - Quercus ilex"></div>
+            <div class="contingut">
+                <div class="numero">01</div>
+                <h2>Alzina</h2>
+                <p class="cientific">Quercus ilex</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port i longevitat:</strong> Arbre perennifoli de 10-16 m, capçada arrodonida i tronc rugós de color marró grisós.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles adaptades:</strong> Coriàcies, dures, de 2-5 cm, verd intens. Les joves amb espines al contorn.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració i fruit:</strong> Floreix de març a maig. Aglà de 1,5-4 cm amb cúpula llenyosa.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Hàbitat:</strong> Boscos escleròfils mediterranis de la comarca, adaptada a sequeres i sòls silícics.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="pi-roig.jpg" alt="Pi roig - Pinus sylvestris"></div>
+            <div class="contingut">
+                <div class="numero">02</div>
+                <h2>Pi roig</h2>
+                <p class="cientific">Pinus sylvestris</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port:</strong> Conífera de fins a 40 m, escorça vermellosa a la part superior, acículas verd blavoses.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Hàbitat:</strong> Zones muntanyoses i vessants secs. Present al Cim de Bassegoda (1350-1500 m).</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració i pinyes:</strong> Floreix de maig a juny. Cons masculins vermellosos, femenins vermell porpra.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Adaptació:</strong> Espècie eurosiberiana resistent al fred, pionera en sòls pobres i degradats.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="pi-blanc.jpg" alt="Pi blanc - Pinus halepensis"></div>
+            <div class="contingut">
+                <div class="numero">03</div>
+                <h2>Pi blanc</h2>
+                <p class="cientific">Pinus halepensis</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port i escorça:</strong> Fins a 20 m, escorça grisenca blanquinosa. Capçada irregular, tronc tortuós.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles:</strong> Acículas de 3,5-7 cm verd groguenc, molt fines. Espècie xeròfila i heliòfila.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració i pinyes:</strong> Floreix d'abril a maig. Pinyes de 5-12 cm amb peduncle clar.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Hàbitat:</strong> Zones baixes i assolellades fins a 1000 m. Dominant on abans hi havia alzinars.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="farigola.jpg" alt="Farigola - Thymus vulgaris"></div>
+            <div class="contingut">
+                <div class="numero">04</div>
+                <h2>Farigola</h2>
+                <p class="cientific">Thymus vulgaris</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port i aromaticitat:</strong> Mata perenne aromàtica de 30-40 cm, tiges llenyoses i pubescents.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles:</strong> Petites (fins a 1 cm), lanceolades, feix verd apagat i revers blanquinós. Marges revoluts.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració:</strong> De març a juny. Flors rosades o blanques, bilabiades. Molt visitada per abelles.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Usos:</strong> Planta medicinal i aromàtica. Sumitats florides seques com a remei. Font de timol.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="boix.jpg" alt="Boix - Buxus sempervirens"></div>
+            <div class="contingut">
+                <div class="numero">05</div>
+                <h2>Boix</h2>
+                <p class="cientific">Buxus sempervirens</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port:</strong> Arbust perennifoli dens de 0,5-2,5 m. Fulles oposades, enteres, dures i lluents.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles persistents:</strong> Obovades, generalment emarginades a l'àpex. Fotosíntesi tot l'any.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració:</strong> De febrer a abril. Flors poc vistoses: una femenina central envoltada de masculines.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Problemàtica:</strong> Desapareix per l'arna del boix (Cydalima perspectalis), originària d'Àsia. Boixos com esquelets secs.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="faig.jpg" alt="Faig - Fagus sylvatica"></div>
+            <div class="contingut">
+                <div class="numero">06</div>
+                <h2>Faig</h2>
+                <p class="cientific">Fagus sylvatica</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port:</strong> Arbre caducifoli de gran port, tronc llis i grisenc. Forma boscos densos i ombrívols (fagedes).</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles:</strong> Caducifòlies, ovalades, marges enters i nerviació pinnada. A la tardor tons ocres i daurats.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració:</strong> Monoica, flors petites poc vistoses, pol·linització anemòfila. Aments masculins a l'inici de primavera.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Hàbitat:</strong> Zones humides i fresques. Present a l'Alta Garrotxa. La Fageda d'en Jordà és la fageda més coneguda.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="avellaner.jpg" alt="Avellaner - Corylus avellana"></div>
+            <div class="contingut">
+                <div class="numero">07</div>
+                <h2>Avellaner</h2>
+                <p class="cientific">Corylus avellana</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port i longevitat:</strong> Arbust de 2-5 m que viu uns 60 anys. Creix formant ceps de diversos troncs fins.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles:</strong> Caducifòlies, amples, ovalades a cordiformes, marges molt dentats i lleugerament pubescents.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració hivernal:</strong> Monoic. Flors masculines en aments grocs penjants; femenines ocultes amb estigmes vermells. Pol·linització pel vent.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fruit i ecologia:</strong> Avellana amb closca llenyosa. Dispersió per esquirols que n'obliden algunes. Arrels amb micorrizes, inclosa la tòfona.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="grevole.jpg" alt="Grèvol - Ilex aquifolium"></div>
+            <div class="contingut">
+                <div class="numero">08</div>
+                <h2>Grèvol</h2>
+                <p class="cientific">Ilex aquifolium</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port:</strong> Arbust o petit arbre perennifoli de 2-10 m, capçada densa i fosca.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles:</strong> Coriàcies, lluents, amb espines al marge. Les fulles de les parts altes solen tenir menys espines.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració i fruit:</strong> Floreix de maig a juny. Fruits vermells (drupes) que maduren a l'hivern.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Hàbitat:</strong> Boscos humits i ombrívols de la Garrotxa, especialment a la fageda i rouredes.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="ciclamen.jpg" alt="Ciclamen - Cyclamen hederifolium"></div>
+            <div class="contingut">
+                <div class="numero">09</div>
+                <h2>Ciclamen</h2>
+                <p class="cientific">Cyclamen hederifolium</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port:</strong> Planta herbàcia perenne de 10-15 cm, amb tubercle subterrani.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles:</strong> Cordiformes, verd fosc amb taques platejades, apareixen després de les flors.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració:</strong> De setembre a novembre. Flors rosades o blanques amb pètals reflexos cap enrere.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Hàbitat:</strong> Boscos humits i ombrívols, sovint sota faigs i alzines de la comarca.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="falguera.jpg" alt="Falguera - Polypodium vulgare"></div>
+            <div class="contingut">
+                <div class="numero">10</div>
+                <h2>Falguera</h2>
+                <p class="cientific">Polypodium vulgare</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port:</strong> Planta herbàcia perenne amb rizoma rastrer, fulles de 10-40 cm.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles:</strong> Frondes pinnades, verd fosc, amb folíols arrodonits o lanceolats.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Reproducció:</strong> Per espores agrupades en sorus a la cara inferior de les frondes.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Hàbitat:</strong> Roques ombrívoles, murs i troncs d'arbres humits de la Garrotxa.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="ginesta.jpg" alt="Ginesta - Spartium junceum"></div>
+            <div class="contingut">
+                <div class="numero">11</div>
+                <h2>Ginesta</h2>
+                <p class="cientific">Spartium junceum</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port:</strong> Arbust de 2-4 m, molt ramificat, amb branques gairebé sense fulles.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles:</strong> Escasses, lanceolades i caduques, que cauen aviat.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració:</strong> De maig a juliol. Flors grogues papilionàcies molt oloroses.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Hàbitat:</strong> Terrenys secs i assolellats, marges de camins i zones degradades.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="romani.jpg" alt="Romaní - Salvia rosmarinus"></div>
+            <div class="contingut">
+                <div class="numero">12</div>
+                <h2>Romaní</h2>
+                <p class="cientific">Salvia rosmarinus</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port:</strong> Mata perenne aromàtica de 0,5-2 m, molt ramificada i llenyosa.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles:</strong> Linears, coriàcies, verd fosc pel feix i blanquinoses pel revers.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració:</strong> Gairebé tot l'any, especialment de febrer a maig. Flors blaves o lila.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Usos:</strong> Planta medicinal, aromàtica i culinària. Tradicional a la cuina catalana.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="menta.jpg" alt="Menta - Mentha spicata"></div>
+            <div class="contingut">
+                <div class="numero">13</div>
+                <h2>Menta</h2>
+                <p class="cientific">Mentha spicata</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port:</strong> Planta herbàcia perenne de 30-80 cm, amb tiges quadrangulars.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles:</strong> Oposades, lanceolades, dentades i molt aromàtiques.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració:</strong> De juliol a setembre. Flors lila pàl·lid en espigues terminals.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Hàbitat:</strong> Llocs humits, vores de rius i recs de la comarca.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="rosa-silvestre.jpg" alt="Rosa silvestre - Rosa canina"></div>
+            <div class="contingut">
+                <div class="numero">14</div>
+                <h2>Rosa silvestre</h2>
+                <p class="cientific">Rosa canina</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port:</strong> Arbust espinós de 1-3 m, amb branques arquejades i agullons corbats.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles:</strong> Compostes, amb 5-7 folíols dentats, verd fosc.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració i fruit:</strong> Flors rosades o blanques de maig a juliol. Fruit: cinorrodon vermell.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Usos i hàbitat:</strong> Fruits rics en vitamina C. Vores de boscos, bardisses i marges.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="arc-blanc.jpg" alt="Arç blanc - Crataegus monogyna"></div>
+            <div class="contingut">
+                <div class="numero">15</div>
+                <h2>Arç blanc</h2>
+                <p class="cientific">Crataegus monogyna</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port:</strong> Arbust o petit arbre espinós de 2-8 m, capçada densa.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles:</strong> Caduques, lobulades i dentades, verd fosc pel feix.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració i fruit:</strong> Flors blanques oloroses a la primavera. Fruits vermells (arçons) a la tardor.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Usos i hàbitat:</strong> Planta medicinal pel cor. Bardisses, marges i boscos de la comarca.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="roure-martinenc.jpg" alt="Roure martinenc - Quercus pubescens"></div>
+            <div class="contingut">
+                <div class="numero">16</div>
+                <h2>Roure martinenc</h2>
+                <p class="cientific">Quercus pubescens</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port:</strong> Arbre caducifoli de 10-20 m, capçada irregular i tronc grisenc.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles:</strong> Caduques, lobulades, verd fosc pel feix i pubescents pel revers.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració i fruit:</strong> Floreix a la primavera. Aglans amb cúpula escamosa.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Hàbitat:</strong> Boscos secs i assolellats, sovint acompanyant alzines i pins.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="auro.jpg" alt="Auró - Acer opalus"></div>
+            <div class="contingut">
+                <div class="numero">17</div>
+                <h2>Auró</h2>
+                <p class="cientific">Acer opalus</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port:</strong> Arbre caducifoli de 10-20 m, capçada arrodonida i tronc grisenc.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles:</strong> Palmades, amb 3-5 lòbuls, verd fosc. A la tardor es tornen grogues.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració i fruit:</strong> Flors groguenques a la primavera. Fruits amb ales (sàmares).</span></li>
+                    <li><span class="icona">◆</span><span><strong>Hàbitat:</strong> Boscos humits i frescos, sovint acompanyant faigs i roures.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="sauc.jpg" alt="Saüc - Sambucus nigra"></div>
+            <div class="contingut">
+                <div class="numero">18</div>
+                <h2>Saüc</h2>
+                <p class="cientific">Sambucus nigra</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port:</strong> Arbust o petit arbre de 2-6 m, amb branques toves i medul·loses.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles:</strong> Compostes, oposades, amb 5-7 folíols dentats.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració i fruit:</strong> Flors blanques oloroses en corimbs. Fruits negres en drupes.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Usos i hàbitat:</strong> Planta medicinal i culinària. Llocs humits i nitrogenats.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="heura.jpg" alt="Heura - Hedera helix"></div>
+            <div class="contingut">
+                <div class="numero">19</div>
+                <h2>Heura</h2>
+                <p class="cientific">Hedera helix</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port:</strong> Planta enfiladissa perenne, amb tiges que s'adhereixen per arrels adventícies.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles:</strong> Coriàcies, lluents, lobulades a les tiges joves i enters a les adultes.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració i fruit:</strong> Flors verdoses a la tardor. Fruits negres, tòxics per humans però aliment per ocells.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Hàbitat:</strong> Boscos humits, murs i troncs d'arbres de tota la comarca.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="planta">
+            <div class="foto"><img src="esbarzer.jpg" alt="Esbarzer - Rubus ulmifolius"></div>
+            <div class="contingut">
+                <div class="numero">20</div>
+                <h2>Esbarzer</h2>
+                <p class="cientific">Rubus ulmifolius</p>
+                <ul>
+                    <li><span class="icona">◆</span><span><strong>Port:</strong> Arbust enfiladís espinós de fins a 3 m, amb tiges arquejades.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Fulles:</strong> Compostes, amb 3-5 folíols dentats, verd fosc pel feix i blancs pel revers.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Floració i fruit:</strong> Flors rosades o blanques a l'estiu. Fruits: móres comestibles.</span></li>
+                    <li><span class="icona">◆</span><span><strong>Hàbitat:</strong> Bardisses, marges de camins i zones degradades de la comarca.</span></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="peu">
+        <div class="dada">439 espècies documentades</div>
+        <p>Herbari del Museu dels Volcans (MV-Her) · Garrotxa</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
